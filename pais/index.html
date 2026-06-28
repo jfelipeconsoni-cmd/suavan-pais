@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acompanhe a Van Escolar do Seu Filho | Buscar Van — Sua Van</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Francois+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+<!-- SEO -->
+<meta name="description" content="Encontre a van escolar que atende a escola do seu filho, contrate pelo app e acompanhe o trajeto em tempo real com avisos de embarque e desembarque. Buscar e contratar é grátis.">
+<link rel="canonical" href="https://www.suavan.com.br/pais">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://www.suavan.com.br/pais">
+<meta property="og:site_name" content="Sua Van">
+<meta property="og:title" content="Acompanhe a Van Escolar do Seu Filho — Sua Van">
+<meta property="og:description" content="Ache a van que atende a escola do seu filho e acompanhe o trajeto em tempo real. Buscar e contratar é grátis.">
+<meta property="og:image" content="https://www.suavan.com.br/og-pais.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Acompanhe a Van Escolar do Seu Filho — Sua Van">
+<meta name="twitter:description" content="Ache a van que atende a escola do seu filho e acompanhe o trajeto em tempo real. Busca grátis.">
+<meta name="twitter:image" content="https://www.suavan.com.br/og-pais.jpg">
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Sua Van",
+  "description": "App para pais encontrarem e acompanharem a van escolar do filho: busca por escola, contratação pelo app e rastreamento em tempo real.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Android",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+  "url": "https://www.suavan.com.br/pais",
+  "inLanguage": "pt-BR",
+  "publisher": { "@type": "Organization", "name": "Sua Van", "url": "https://www.suavan.com.br" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "É grátis buscar e contratar uma van pela Sua Van?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sim. Buscar a van que atende a escola do seu filho e fechar o contrato pelo app é gratuito para os pais." } },
+    { "@type": "Question", "name": "Como acompanho meu filho na van?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Com um plano de acompanhamento você vê a van no mapa em tempo real e recebe avisos de embarque e desembarque do seu filho." } },
+    { "@type": "Question", "name": "Como funciona o pagamento da mensalidade?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A mensalidade pode ser paga pelo próprio app, com o histórico organizado num só lugar." } }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --yellow400:#FACC15; --yellow500:#FFC500;
+  --gray900:#111827; --gray800:#1F2937; --gray700:#374151; --gray600:#4B5563;
+  --gray500:#6B7280; --gray400:#9CA3AF; --gray300:#D1D5DB; --gray200:#E5E7EB;
+  --gray100:#F3F4F6; --gray50:#F9FAFB;
+  --green600:#16A34A; --orange500:#F97316; --blue600:#2563EB; --blue50:#EFF6FF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--gray800);background:var(--gray50);line-height:1.6}
+a{text-decoration:none}
+.mi{font-family:'Material Icons Outlined';font-style:normal;display:inline-block;line-height:1}
+
+header{display:flex;justify-content:space-between;align-items:center;padding:0 6%;height:60px;background:#fff;border-bottom:1px solid var(--gray200);position:sticky;top:0;z-index:100}
+.logo-pill{background:var(--yellow500);padding:3px 10px;font-family:'Francois One',sans-serif;font-size:20px;color:var(--gray800);line-height:1.2}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:var(--gray600);font-weight:600;font-size:14px}
+.btn-nav{background:var(--gray900);color:#fff !important;padding:8px 18px;border-radius:10px;font-weight:700;font-size:13px}
+
+.hero{background:var(--gray900);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:60px 6%;gap:44px}
+.hero-left{flex:1;min-width:280px;max-width:500px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.3);border-radius:999px;padding:4px 12px;margin-bottom:20px}
+.hero-badge span{font-size:11.5px;font-weight:700;color:var(--yellow400)}
+.hero h1{font-size:35px;font-weight:700;line-height:1.2;color:#fff;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--yellow400)}
+.hero p{font-size:15px;color:var(--gray400);margin-bottom:26px;max-width:430px;line-height:1.75}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.btn-primary{background:var(--yellow400);color:var(--gray900);padding:13px 26px;border-radius:12px;font-weight:700;font-size:14.5px;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:transform .15s}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--gray400);padding:13px 26px;border-radius:12px;font-weight:600;font-size:14.5px;border:1px solid var(--gray700)}
+.hero-note{font-size:12px;color:var(--gray600)}
+.hero-note b{color:var(--gray500)}
+
+.search-card{flex:1;min-width:300px;max-width:380px;background:#fff;border-radius:16px;padding:24px;box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.search-card h3{font-size:16px;font-weight:700;color:var(--gray900);margin-bottom:4px}
+.search-card .sc-sub{font-size:12px;color:var(--gray500);margin-bottom:16px}
+.search-card label{display:block;font-size:11.5px;font-weight:700;color:var(--gray700);margin:12px 0 5px}
+.search-card input,.search-card select{width:100%;padding:11px 12px;border:1px solid var(--gray200);border-radius:8px;font-size:13.5px;font-family:'Inter',sans-serif;color:var(--gray800);background:var(--gray50);outline:none}
+.search-card input:focus,.search-card select:focus{border-color:var(--yellow400);background:#fff;box-shadow:0 0 0 3px rgba(250,204,21,.15)}
+.search-card .sc-btn{width:100%;margin-top:16px;padding:13px;border:none;border-radius:12px;background:var(--yellow400);color:var(--gray900);font-weight:700;font-size:14.5px;font-family:'Inter',sans-serif;cursor:pointer}
+
+section{padding:70px 6%}
+.section-title{text-align:center;margin-bottom:44px}
+.section-label{display:inline-block;font-size:11.5px;font-weight:700;color:var(--gray500);letter-spacing:.65px;text-transform:uppercase;margin-bottom:10px}
+.section-title h2{font-size:27px;font-weight:700;color:var(--gray900);margin-bottom:8px}
+.section-title p{font-size:15px;color:var(--gray500);max-width:480px;margin:0 auto}
+
+#beneficios{background:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px;max-width:920px;margin:0 auto}
+.bcard{background:var(--gray50);border:1px solid var(--gray200);border-radius:14px;padding:20px}
+.bicon{width:44px;height:44px;border-radius:11px;background:rgba(250,204,21,.18);display:flex;align-items:center;justify-content:center;margin-bottom:13px}
+.bicon .mi{font-size:22px;color:var(--gray800)}
+.bcard h3{font-size:15px;font-weight:700;color:var(--gray900);margin-bottom:6px}
+.bcard p{font-size:13.5px;color:var(--gray500);line-height:1.6}
+
+#como-funciona{background:var(--gray50)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:26px;max-width:920px;margin:0 auto}
+.step-num{width:40px;height:40px;border-radius:50%;background:var(--yellow400);color:var(--gray900);font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:13px}
+.step h4{font-size:14.5px;font-weight:700;color:var(--gray900);margin-bottom:6px}
+.step p{font-size:13px;color:var(--gray500);line-height:1.6}
+
+#vans{background:#fff}
+.van-list{display:flex;flex-direction:column;gap:12px;max-width:760px;margin:0 auto}
+.van-item{display:flex;align-items:center;gap:16px;background:var(--gray50);border:1px solid var(--gray200);border-radius:13px;padding:16px 18px;flex-wrap:wrap}
+.van-avatar{width:46px;height:46px;border-radius:50%;background:var(--yellow500);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.van-avatar .mi{font-size:24px;color:var(--gray800)}
+.van-info{flex:1;min-width:160px}
+.van-info h4{font-size:15px;font-weight:700;color:var(--gray900);margin-bottom:3px}
+.van-info p{font-size:12.5px;color:var(--gray500)}
+.van-badge{display:inline-block;background:var(--blue50);color:var(--blue600);font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;margin-top:6px}
+.van-right{text-align:right;flex-shrink:0}
+.van-rating{font-size:13px;font-weight:700;color:#CA8A04}
+.van-price{font-size:15px;font-weight:700;color:var(--gray800);margin-top:2px}
+.van-price span{font-size:11px;font-weight:600;color:var(--gray500)}
+
+#planos{background:var(--gray900)}
+#planos .section-title h2{color:#fff}
+#planos .section-title p{color:var(--gray400)}
+.plan-lead{text-align:center;color:var(--gray400);font-size:13.5px;margin:-28px auto 36px;max-width:520px}
+.plan-lead b{color:var(--yellow400)}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;max-width:860px;margin:0 auto}
+.plan{background:#fff;border:1px solid var(--gray200);border-radius:16px;padding:24px}
+.plan.featured{border:2px solid var(--yellow400)}
+.plan-tag{font-size:11px;font-weight:700;color:var(--gray500);text-transform:uppercase;letter-spacing:.5px}
+.plan h3{font-size:18px;font-weight:700;color:var(--gray900);margin:4px 0 2px}
+.plan .plan-price{font-size:14px;font-weight:700;color:var(--green600);margin-bottom:14px}
+.plan .plan-price.soon{color:var(--gray400)}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.plan li{font-size:13px;color:var(--gray600);display:flex;align-items:flex-start;gap:8px}
+.plan li .mi{font-size:17px;color:var(--green600);flex-shrink:0}
+.plan li.off{color:var(--gray400)}
+.plan li.off .mi{color:var(--gray300)}
+
+#faq{background:var(--gray50)}
+.faq-list{max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq-item{background:#fff;border:1px solid var(--gray200);border-radius:12px;padding:15px 18px}
+.faq-item h4{font-size:14px;font-weight:700;color:var(--gray900);margin-bottom:5px}
+.faq-item p{font-size:13.5px;color:var(--gray500);line-height:1.6}
+
+footer{background:var(--gray900);color:var(--gray600);padding:30px 6%;text-align:center;font-size:13px}
+footer .footer-logo{margin-bottom:8px;display:inline-block}
+
+@media(max-width:768px){
+  nav{display:none}
+  .hero h1{font-size:26px}
+  .search-card{max-width:100%}
+  .van-item{flex-direction:column;align-items:flex-start}
+  .van-right{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-pill">SUAVAN</div>
+  <nav>
+    <a href="#beneficios">Por que</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#planos">Planos</a>
+    <a href="#busca" class="btn-nav">Buscar van</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">
+      <span class="mi" style="font-size:13px;color:var(--yellow400)">directions_bus</span>
+      <span>Buscar e contratar é grátis</span>
+    </div>
+    <h1>Ache a van do seu filho e <em>acompanhe cada trajeto</em></h1>
+    <p>Encontre a van que atende a escola do seu filho, veja avaliações de outros pais e feche pelo app. Depois, acompanhe a van no mapa em tempo real e receba o aviso quando seu filho embarca e desembarca.</p>
+    <div class="hero-cta">
+      <a href="#busca"><button class="btn-primary">Buscar van perto de mim</button></a>
+      <a href="#como-funciona" class="btn-ghost">Ver como funciona</a>
+    </div>
+    <p class="hero-note"><b>✓</b> busca grátis &nbsp;·&nbsp; <b>✓</b> motoristas avaliados &nbsp;·&nbsp; <b>✓</b> sem compromisso</p>
+  </div>
+
+  <div class="search-card" id="busca">
+    <h3>Buscar van escolar</h3>
+    <div class="sc-sub">Vans que atendem a escola do seu filho</div>
+    <label>Escola do seu filho</label>
+    <input type="text" placeholder="Nome da escola">
+    <label>Bairro ou região</label>
+    <input type="text" placeholder="Ex: Pinheiros, São Paulo">
+    <label>Período</label>
+    <select>
+      <option>Manhã</option>
+      <option>Tarde</option>
+      <option>Integral</option>
+    </select>
+    <button type="button" class="sc-btn">Buscar vans disponíveis</button>
+  </div>
+</div>
+
+<!-- BENEFÍCIOS -->
+<section id="beneficios">
+  <div class="section-title">
+    <div class="section-label">Por que usar o Sua Van</div>
+    <h2>Mais tranquilidade no dia da escola</h2>
+    <p>Da escolha da van ao trajeto de cada dia, num app só.</p>
+  </div>
+  <div class="grid">
+    <div class="bcard">
+      <div class="bicon"><span class="mi">search</span></div>
+      <h3>Busca pela escola do filho</h3>
+      <p>Veja as vans que realmente atendem a escola e o bairro do seu filho — não uma lista genérica.</p>
+    </div>
+    <div class="bcard">
+      <div class="bicon"><span class="mi">star_outline</span></div>
+      <h3>Motoristas avaliados</h3>
+      <p>Compare avaliações de outros pais e o perfil de cada motorista antes de fechar.</p>
+    </div>
+    <div class="bcard">
+      <div class="bicon"><span class="mi">location_on</span></div>
+      <h3>Rastreio ao vivo</h3>
+      <p>Acompanhe no mapa onde a van está e tenha a previsão de quando seu filho chega.</p>
+    </div>
+    <div class="bcard">
+      <div class="bicon"><span class="mi">notifications_active</span></div>
+      <h3>Avisos de embarque e desembarque</h3>
+      <p>Receba um aviso no momento em que seu filho entra e sai da van. Sem precisar ligar.</p>
+    </div>
+    <div class="bcard">
+      <div class="bicon"><span class="mi">payments</span></div>
+      <h3>Pagamento pelo app</h3>
+      <p>Pague a mensalidade direto no app, com o histórico organizado num só lugar.</p>
+    </div>
+    <div class="bcard">
+      <div class="bicon"><span class="mi">verified_user</span></div>
+      <h3>Tudo num lugar seguro</h3>
+      <p>Contrato, pagamentos e o trajeto do seu filho juntos, sem grupos de WhatsApp espalhados.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona">
+  <div class="section-title">
+    <div class="section-label">Passo a passo</div>
+    <h2>Como funciona</h2>
+    <p>Achar a van certa leva poucos minutos.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Busque pela escola</h4>
+      <p>Informe a escola, o bairro e o período do seu filho.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Compare as vans</h4>
+      <p>Veja avaliações, vagas e valores das vans disponíveis perto de você.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Contrate pelo app</h4>
+      <p>Feche com o motorista escolhido e pague a mensalidade pelo app.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>Acompanhe o dia a dia</h4>
+      <p>Rastreio ao vivo e avisos de embarque e desembarque do seu filho.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VANS DE EXEMPLO -->
+<section id="vans">
+  <div class="section-title">
+    <div class="section-label">Exemplo de busca</div>
+    <h2>Vans que atendem sua escola</h2>
+    <p>Resultado de exemplo — Colégio Santa Cruz, Pinheiros · São Paulo</p>
+  </div>
+  <div class="van-list">
+    <div class="van-item">
+      <div class="van-avatar"><span class="mi">directions_bus</span></div>
+      <div class="van-info">
+        <h4>Van do Seu Marcos</h4>
+        <p>Pinheiros → Colégio Santa Cruz · Manhã e tarde</p>
+        <span class="van-badge">8 vagas</span>
+      </div>
+      <div class="van-right">
+        <div class="van-rating">★ 4,9 · 32 avaliações</div>
+        <div class="van-price">R$ 480 <span>/ mês</span></div>
+      </div>
+    </div>
+    <div class="van-item">
+      <div class="van-avatar"><span class="mi">directions_bus</span></div>
+      <div class="van-info">
+        <h4>Van da Tia Renata</h4>
+        <p>Vila Madalena → Colégio Santa Cruz · Manhã</p>
+        <span class="van-badge">3 vagas</span>
+      </div>
+      <div class="van-right">
+        <div class="van-rating">★ 4,8 · 21 avaliações</div>
+        <div class="van-price">R$ 450 <span>/ mês</span></div>
+      </div>
+    </div>
+    <div class="van-item">
+      <div class="van-avatar"><span class="mi">directions_bus</span></div>
+      <div class="van-info">
+        <h4>Van Expresso Butantã</h4>
+        <p>Butantã → Colégio Santa Cruz · Integral</p>
+        <span class="van-badge">5 vagas</span>
+      </div>
+      <div class="van-right">
+        <div class="van-rating">★ 4,7 · 18 avaliações</div>
+        <div class="van-price">R$ 520 <span>/ mês</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section id="planos">
+  <div class="section-title">
+    <div class="section-label" style="color:var(--gray500)">Acompanhamento</div>
+    <h2>Escolha como acompanhar</h2>
+  </div>
+  <p class="plan-lead"><b>Buscar e contratar é sempre grátis.</b> Para acompanhar seu filho ao vivo, escolha um plano com o nível de acompanhamento que você quer.</p>
+  <div class="plans">
+    <div class="plan">
+      <div class="plan-tag">Incluído</div>
+      <h3>Grátis</h3>
+      <div class="plan-price">Sem custo</div>
+      <ul>
+        <li><span class="mi">check</span>Buscar e contratar van</li>
+        <li><span class="mi">check</span>Aviso de embarque e desembarque</li>
+        <li><span class="mi">check</span>Histórico dos últimos 7 dias</li>
+        <li class="off"><span class="mi">remove</span>Mapa ao vivo</li>
+      </ul>
+    </div>
+    <div class="plan featured">
+      <div class="plan-tag">Mais escolhido</div>
+      <h3>Plus</h3>
+      <div class="plan-price soon">Em breve</div>
+      <ul>
+        <li><span class="mi">check</span>Tudo do grátis</li>
+        <li><span class="mi">check</span>Mapa ao vivo da van</li>
+        <li><span class="mi">check</span>Previsão de chegada (ETA)</li>
+      </ul>
+    </div>
+    <div class="plan">
+      <div class="plan-tag">Para a família</div>
+      <h3>Família</h3>
+      <div class="plan-price soon">Em breve</div>
+      <ul>
+        <li><span class="mi">check</span>Tudo do Plus</li>
+        <li><span class="mi">check</span>Vários filhos no mesmo app</li>
+        <li><span class="mi">check</span>Histórico estendido</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-title">
+    <div class="section-label">Dúvidas frequentes</div>
+    <h2>Perguntas frequentes</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h4>É grátis buscar e contratar uma van?</h4>
+      <p>Sim. Buscar a van que atende a escola do seu filho e fechar o contrato pelo app é gratuito para os pais. O acompanhamento ao vivo é o que tem planos.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Como sei se o motorista é confiável?</h4>
+      <p>Cada motorista tem um perfil com avaliações de outros pais, as escolas que atende e os dados do veículo.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Como acompanho meu filho na van?</h4>
+      <p>Com um plano de acompanhamento você vê a van no mapa em tempo real e recebe o aviso no momento em que seu filho embarca e desembarca.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Como funciona o pagamento da mensalidade?</h4>
+      <p>A mensalidade pode ser paga pelo próprio app, com o histórico organizado num só lugar — sem boleto perdido.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><div class="logo-pill">SUAVAN</div></div>
+  <p>© 2026 Sua Van — Encontre e acompanhe a van escolar do seu filho</p>
+</footer>
+
+</body>
+</html>
