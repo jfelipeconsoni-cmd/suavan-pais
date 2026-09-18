@@ -451,6 +451,22 @@
 </footer>
 
 <script>
+  // Etiqueta de origem (elo 3 da atribuição — a corrente inteira está em "UTMs — Padrão e Links
+  // Prontos" §7): o UTM do link de entrada vira "via fonte/meio" no fim da mensagem do WhatsApp,
+  // para o lead chegar já etiquetado. Guarda de FORMA, não de conteúdo: apara as pontas, passa
+  // para minúsculas e aceita só slug (a-z, 0-9, - e _, até 24); e-mail, acento, espaço no meio
+  // ou quebra de linha descartam o valor. O que pode ser um canal (e o que é dado pessoal, que
+  // nunca entra num UTM) é regra do padrão, no doc — não deste código. Sem fonte, nada.
+  // Nada é guardado: a origem só existe no carregamento que trouxe o UTM (o Clarity lê o mesmo).
+  function origemUtm(search){
+    var p = new URLSearchParams(search);
+    function slug(k){ var v = (p.get(k) || '').trim().toLowerCase(); return /^[a-z0-9_-]{1,24}$/.test(v) ? v : ''; }
+    var fonte = slug('utm_source');
+    if(!fonte) return '';
+    var meio = slug('utm_medium');
+    return meio ? fonte + '/' + meio : fonte;
+  }
+
   // De onde veio o clique — vira a tag `cta_origem` no Clarity. ⛔ Valores fixos
   // (id da seção, hero, cabecalho, rodape): nada digitado pelo usuário entra em tag.
   function origem(el){
@@ -463,16 +479,25 @@
     return 'outro';
   }
 
-  // Links externos (.out): repassa UTMs e mede o clique no Clarity (segmento + origem).
+  // Repasse de UTM entre as três páginas: a query string atual vai junto em todo link para a raiz
+  // de suavan.com.br, motorista. ou pais. — os botões do garfo (.out) e os links do rodapé. Assim a
+  // origem que entrou na principal chega ao formulário do subdomínio (e vira o "via …" na mensagem).
+  // ⛔ A query entra antes do #hash; sem UTM na URL atual, nada muda.
   (function(){
     var extra = window.location.search;
+    function repassarUtm(el){
+      if(!extra) return;
+      var u = new URL(el.href);
+      if(!/(^|\.)suavan\.com\.br$/.test(u.hostname) || u.pathname !== '/') return; // só a raiz das três landings
+      new URLSearchParams(extra).forEach(function(v, k){ u.searchParams.set(k, v); });
+      el.href = u.toString();
+    }
+    document.querySelectorAll('a.out, footer nav.links a[href^="https://"]').forEach(repassarUtm);
+  })();
+
+  // Links externos (.out): mede o clique no Clarity (segmento + origem).
+  (function(){
     document.querySelectorAll('a.out').forEach(function(el){
-      // Preserva UTMs/campanha: repassa a query string atual para a sub-página.
-      if(extra){
-        var u = new URL(el.href);
-        new URLSearchParams(extra).forEach(function(v, k){ u.searchParams.set(k, v); });
-        el.href = u.toString(); // a query entra antes do #hash, que fica preservado
-      }
       // Clarity: ao clicar, marca o segmento da sessão e conta o evento do garfo.
       el.addEventListener('click', function(){
         if(typeof window.clarity !== 'function') return;
@@ -529,7 +554,8 @@
       var cidade = form.cidade.value.trim();
       if(!cidade){ form.cidade.reportValidity(); return; }
       var nome = form.nome.value.trim();
-      var msg = 'Olá! Quero entrar na lista de espera do Sua Van para famílias. Cidade: ' + cidade + (nome ? ' (' + nome + ')' : '');
+      var via = origemUtm(window.location.search); // '' quando o link não trouxe UTM: a mensagem fica como sempre foi
+      var msg = 'Olá! Quero entrar na lista de espera do Sua Van para famílias. Cidade: ' + cidade + (nome ? ' (' + nome + ')' : '') + (via ? ' — via ' + via : '');
       var url = 'https://wa.me/' + WHATS + '?text=' + encodeURIComponent(msg);
       reabrir.href = url;
       if(typeof window.clarity === 'function'){ window.clarity('set', 'segmento', 'pai'); window.clarity('event', 'lista_whatsapp_enviar'); }
