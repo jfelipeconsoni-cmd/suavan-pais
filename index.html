@@ -393,7 +393,7 @@
         <div class="ok-ic"><span class="ms" aria-hidden="true">check_circle_outline</span></div>
         <h3 tabindex="-1">Mensagem pronta</h3>
         <p>Abrimos o WhatsApp com o seu pedido. É só tocar em enviar — se houver novidade para famílias, você recebe o aviso por lá.</p>
-        <a class="btn btn-outline" id="acesso-reabrir" href="#" target="_blank" rel="noopener">Abrir o WhatsApp de novo</a>
+        <button type="button" class="btn btn-outline" id="acesso-reabrir">Abrir o WhatsApp de novo</button>
       </div>
     </div>
   </div>
@@ -569,6 +569,9 @@
     var card = document.getElementById('acesso-card');
     var form = document.getElementById('acesso-form');
     var reabrir = document.getElementById('acesso-reabrir');
+    // ⛔ O link com nome e cidade fica só nesta variável, nunca no HTML: o Clarity
+    // grava o atributo href de um <a> e o leva à Microsoft (revisão de 25/10/2026, P1).
+    var ultimaUrl = '';
     if(!card || !form) return;
     document.querySelectorAll('.js-lista').forEach(function(b){
       b.addEventListener('click', function(){
@@ -584,13 +587,16 @@
       var via = origemUtm(window.location.search); // '' quando o link não trouxe UTM: a mensagem fica como sempre foi
       var msg = 'Olá! Quero entrar na lista de espera do Sua Van para famílias. Cidade: ' + cidade + (nome ? ' (' + nome + ')' : '') + (via ? ' — via ' + via : '');
       var url = 'https://wa.me/' + WHATS + '?text=' + encodeURIComponent(msg);
-      reabrir.href = url;
+      ultimaUrl = url;
       if(typeof window.clarity === 'function'){ window.clarity('set', 'segmento', 'pai'); window.clarity('event', 'lista_whatsapp_enviar'); }
       window.open(url, '_blank', 'noopener');
       card.classList.add('done');
       var okTitle = card.querySelector('.acesso-ok h3'); if(okTitle) okTitle.focus();
     });
-    reabrir.addEventListener('click', function(){ if(typeof window.clarity === 'function'){ window.clarity('event', 'lista_whatsapp_reabrir'); } });
+    reabrir.addEventListener('click', function(){
+      if(typeof window.clarity === 'function'){ window.clarity('event', 'lista_whatsapp_reabrir'); }
+      if(ultimaUrl) window.open(ultimaUrl, '_blank', 'noopener');
+    });
   })();
 
   // FAQ: um evento só para qualquer pergunta aberta. ⛔ Sem o texto da pergunta no
